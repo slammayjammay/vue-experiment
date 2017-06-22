@@ -1,0 +1,23 @@
+.vertically-center-container {
+	&:before, &:after {
+		height: 100%;
+		display: inline-block;
+		vertical-align: middle;
+		content: '';
+	}
+}
+
+.vertically-center {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.gray-link {
+	color: rgba(0, 0, 0, 0.44);
+	transition: color 0.1s ease;
+	text-decoration: none;
+
+	&:hover {
+		color: rgba(0, 0, 0, 0.6);
+	}
+}
