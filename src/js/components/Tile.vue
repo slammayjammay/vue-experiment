@@ -5,7 +5,7 @@
 		<div class="content">
 			<div class="content-container">
 				<p class="title">{{ title }}</p>
-				<p class="text">{{ snippet }}</p>
+				<p class="snippet">{{ snippet }}</p>
 				<div class="author">
 					<div class="author-thumbnail" v-bind:style="style.authorThumbnail"></div>
 					<div class="more-info">
@@ -62,8 +62,9 @@
 					margin: 0;
 					font-size: 20px;
 				}
-				.text {
+				.snippet {
 					color: rgba(0, 0, 0, 0.44);
+					margin-top: 8px;
 				}
 
 				.author {
