@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gsap": "^1.19.1",
     "vue": "^2.3.4"
   },
   "devDependencies": {

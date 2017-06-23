@@ -1,5 +1,7 @@
 <template>
 	<div class="header" :class="headerClass">
+		<Modal :thing="isSigningUp" v-on:close="toggleSignUp"></Modal>
+
 		<div class="container" ref="container">
 			<div class="header-title vertically-center-container">
 				<h1 class="vertically-center">Medium</h1>
@@ -8,18 +10,20 @@
 				<li class="header-link vertically-center">
 					<a class="gray-link" href="#">Write a story</a>
 				</li>
-				<li class="header-link header-link-sign-up vertically-center">
-					<a class="gray-link" href="#">Sign in / Sign up</a>
+				<li class="header-link header-link-sign-up vertically-center"
+					v-on:click="toggleSignUp"
+				>
+					<span class="sign-up-link gray-link">Sign in / Sign up</span>
 				</li>
 				<li class="header-link header-link-search vertically-center-container vertically-center"
 					ref="searchLink"
 				>
 					<div class="search-icon vertically-center" v-on:click="onSearchClick"></div>
-						<input class="search-input vertically-center"
-							ref="input"
-							type="text"
-							placeholder="Search Medium"
-						/>
+					<input class="search-input vertically-center"
+						ref="input"
+						type="text"
+						placeholder="Search Medium"
+					/>
 				</li>
 			</ul>
 		</div>
@@ -27,22 +31,32 @@
 </template>
 
 <script>
+	import Modal from './Modal.vue';
+
 	export default {
+		components: {
+			Modal
+		},
 		data() {
 			return {
 				isSearching: false,
-				isSearchingVisible: false
+				isSearchingVisible: false,
+				isSigningUp: false
 			};
 		},
 		computed: {
 			headerClass() {
 				return {
 					'is-searching': this.isSearching,
-					'is-searching-visible': this.isSearchingVisible
+					'is-searching-visible': this.isSearchingVisible,
+					'is-signing-up': this.isSigningUp
 				};
 			}
 		},
 		methods: {
+			thing() {
+				console.log('here');
+			},
 			toggleSearch() {
 				this.isSearching = !this.isSearching;
 			},
@@ -65,6 +79,9 @@
 				} else {
 					this.toggleSearchVisibility();
 				}
+			},
+			toggleSignUp() {
+				this.isSigningUp = !this.isSigningUp;
 			}
 		},
 		mounted() {
@@ -125,7 +142,11 @@
 					}
 
 					&.header-link-sign-up {
-						a {
+						&:hover {
+							cursor: pointer;
+						}
+
+						.sign-up-link {
 							color: rgb(0, 171, 107);
 
 							&:hover {
