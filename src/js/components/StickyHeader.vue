@@ -1,28 +1,30 @@
 <template>
 	<div class="sticky-header" :class="headerClass">
-		<div class="sticky-header-links-container">
-			<ButtonLink class="sticky-header-link-get-started"
-				backgroundColor="#00ab6b"
-				borderColor="#00ab6b"
-				color="#fff"
-			>
-				Get started
-			</ButtonLink>
+		<div class="container">
+			<div class="sticky-header-links-container">
+				<ButtonLink class="sticky-header-link-get-started"
+					backgroundColor="#00ab6b"
+					borderColor="#00ab6b"
+					color="#fff"
+				>
+					Get started
+				</ButtonLink>
 
-			<ul class="sticky-header-links vertically-center-container">
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Home</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Popular on Medium</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Audio</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Members only</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Handpicked by Medium staff</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Technology</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Creativity</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Entrepreneurship</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Culture</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Self</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Politics</a></li>
-				<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Bookmarks</a></li>
-			</ul>
+				<ul class="sticky-header-links vertically-center-container">
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Home</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Popular on Medium</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Audio</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Members only</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Handpicked by Medium staff</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Technology</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Creativity</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Entrepreneurship</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Culture</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Self</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Politics</a></li>
+					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Bookmarks</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
@@ -52,16 +54,21 @@
 		position: sticky;
 		top: 0;
 		height: $sticky-header-height;
-		max-width: $max-width;
-		margin: auto;
 		background-color: $background-color;
 		z-index: 1;
 		font-size: 14px;
+		border-bottom: 1px solid rgba(0, 0, 0, .05);
 
 		&.stuck {
 			.sticky-header-link-get-started {
 				display: none;
 			}
+		}
+
+		.container {
+			max-width: $max-width;
+			margin: auto;
+			height: 100%;
 		}
 
 		.sticky-header-links-container {
