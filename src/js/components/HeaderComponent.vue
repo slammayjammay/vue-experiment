@@ -11,8 +11,10 @@
 				<li class="header-link header-link-sign-up vertically-center">
 					<a class="gray-link" href="#">Sign in / Sign up</a>
 				</li>
-				<li class="header-link header-link-search vertically-center-container vertically-center">
-					<div class="search-icon vertically-center" v-on:click="toggleSearching"></div>
+				<li class="header-link header-link-search vertically-center-container vertically-center"
+					ref="searchLink"
+				>
+					<div class="search-icon vertically-center" v-on:click="onSearchClick"></div>
 						<input class="search-input vertically-center"
 							ref="input"
 							type="text"
@@ -28,31 +30,50 @@
 	export default {
 		data() {
 			return {
-				isSearching: false
+				isSearching: false,
+				isSearchingVisible: false
 			};
 		},
 		computed: {
 			headerClass() {
-				return this.isSearching ? 'is-searching' : '';
+				return {
+					'is-searching': this.isSearching,
+					'is-searching-visible': this.isSearchingVisible
+				};
 			}
 		},
 		methods: {
-			toggleSearching() {
+			toggleSearch() {
 				this.isSearching = !this.isSearching;
 			},
+			toggleSearchVisibility() {
+				this.isSearchingVisible = !this.isSearchingVisible;
+			},
+			onSearchClick() {
+				if (!this.isSearchingVisible) {
+					this.toggleSearch();
+					this.toggleSearchVisibility();
+				}
+			},
 			onSearchTransitionEnd(e) {
+				if (e.propertyName !== 'transform') {
+					return;
+				}
+
 				if (this.isSearching) {
 					this.$refs.input.focus();
+				} else {
+					this.toggleSearchVisibility();
 				}
 			}
 		},
 		mounted() {
+			this.$refs.input.addEventListener('blur', this.toggleSearch);
 			this.$refs.container.addEventListener('transitionend', this.onSearchTransitionEnd);
-			this.$refs.input.addEventListener('blur', this.toggleSearching);
 		},
 		destroyed() {
+			this.$refs.input.removeEventListener('blur', this.toggleSearch);
 			this.$refs.container.removeEventListener('transitionend', this.onSearchTransitionEnd);
-			this.$refs.input.removeEventListener('blur', this.toggleSearching);
 		}
 	};
 </script>
