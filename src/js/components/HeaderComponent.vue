@@ -12,7 +12,7 @@
 					<a class="gray-link" href="#">Sign in / Sign up</a>
 				</li>
 				<li class="header-link header-link-search vertically-center-container vertically-center">
-					<div class="search-icon vertically-center" v-on:click="search"></div>
+					<div class="search-icon vertically-center" v-on:click="toggleSearching"></div>
 						<input class="search-input vertically-center"
 							ref="input"
 							type="text"
@@ -37,7 +37,7 @@
 			}
 		},
 		methods: {
-			search() {
+			toggleSearching() {
 				this.isSearching = !this.isSearching;
 			},
 			onSearchTransitionEnd(e) {
@@ -48,9 +48,11 @@
 		},
 		mounted() {
 			this.$refs.container.addEventListener('transitionend', this.onSearchTransitionEnd);
+			this.$refs.input.addEventListener('blur', this.toggleSearching);
 		},
 		destroyed() {
 			this.$refs.container.removeEventListener('transitionend', this.onSearchTransitionEnd);
+			this.$refs.input.removeEventListener('blur', this.toggleSearching);
 		}
 	};
 </script>
