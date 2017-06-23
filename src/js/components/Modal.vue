@@ -1,20 +1,26 @@
 <template>
-	<ScaleTransition>
-		<div class="modal" v-show="thing">
-			<div class="backdrop" v-on:click="close">
-				<div class="modal-content"></div>
-			</div>
+	<component v-bind:is="transition">
+		<div class="modal" v-show="show">
+			<div class="backdrop" v-on:click="close"></div>
 			<div class="close" v-on:click="close">×</div>
+			<div class="modal-content">
+				<slot></slot>
+			</div>
 		</div>
-	</ScaleTransition>
+	</component>
 </template>
 
 <script>
-	import ScaleTransition from './transitions/modal/Scale.vue';
+	import DefaultTransition from './transitions/modal/DefaultTransition.vue';
+	import ScaleTransition from './transitions/modal/ScaleTransition.vue';
 
 	export default {
-		props: ['thing'],
+		props: {
+			show: { default: false },
+			transition: { default: 'DefaultTransition' }
+		},
 		components: {
+			DefaultTransition,
 			ScaleTransition
 		},
 		methods: {

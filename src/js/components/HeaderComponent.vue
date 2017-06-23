@@ -1,6 +1,6 @@
 <template>
 	<div class="header" :class="headerClass">
-		<Modal :thing="isSigningUp" v-on:close="toggleSignUp"></Modal>
+		<SignUpModal :show="isSigningUp" v-on:close="toggleSignUp"></SignUpModal>
 
 		<div class="container" ref="container">
 			<div class="header-title vertically-center-container">
@@ -31,11 +31,11 @@
 </template>
 
 <script>
-	import Modal from './Modal.vue';
+	import SignUpModal from './SignUpModal.vue';
 
 	export default {
 		components: {
-			Modal
+			SignUpModal
 		},
 		data() {
 			return {
