@@ -11,12 +11,10 @@
 		</div>
 
 		<tile-section
-			header="Popular on Medium"
-			:tiles="this.categories.popular"
-		/>
-		<tile-section
-			header="Audio"
-			:tiles="this.categories.audio"
+			v-for="(category, index) in categories"
+			:key="index"
+			:header="category.header"
+			:tiles="category.tiles"
 		/>
 	</div>
 </template>
@@ -30,82 +28,88 @@
 		data() {
 			return {
 				categories: {
-					popular: [
-						{
-							thumbnail: 'https://cdn-images-1.medium.com/max/800/1*Opv_Z-pjWD1-e_rL1udvRg.jpeg',
-							title: 'Encyclopedia Dad',
-							snippet: 'The first time I consult Dad I’m eight. My mom’s dating this guy. He worked with Dad, and I guess he’s a nice enough. But I don’t like it…',
-							author: 'Ryan Riley',
-							authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/1*H-nzuPwGkPOz8Wnmm-bEkw.jpeg',
-							date: 'June 14',
-							readingTime: '24 min'
-						},
-						{
-							thumbnail: 'https://cdn-images-1.medium.com/max/800/1*e63a9PzXZxPgdlzyVxnsnA.jpeg',
-							title: 'The Best Way to Learn Development Skills (While Getting Paid in the Process)',
-							snippet: 'How to harness the motivation to learn development skills without fatigue and with financial revenue.',
-							author: 'Michael Mangialardi',
-							authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/0*EZGwWIn38z4q3X_8.jpg',
-							date: 'June 19',
-							readingTime: '10 min'
-						},
-						{
-							thumbnail: 'https://cdn-images-1.medium.com/max/800/1*nBfLLuLQo8Pd7-iNnfWf5A.jpeg',
-							title: 'Apple Culture after 10 years of iPhone',
-							snippet: 'by Jean-Louis Gassée',
-							author: 'Jean-Louis Gassée',
-							authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/0*nxumRHpz3fHXRqkN.jpg',
-							date: 'June 18',
-							readingTime: '7 min'
-						},
-						{
-							thumbnail: 'https://cdn-images-1.medium.com/max/800/1*-0YKxCzUug93g06oeifRaQ.jpeg',
-							title: '6 Things You Need to Recover From Every Day',
-							snippet: 'Less than 1% of people are living according to the principles/science described herein. However, I’m confident that if you apply these…',
-							author: 'Benjamin P. Hardy',
-							authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/1*Nii6Op1jsOaE4mBfeQpSdw.jpeg',
-							date: 'June 19',
-							readingTime: '14 min'
-						}
-					],
-					audio: [
-						{
-							thumbnail: 'https://cdn-images-1.medium.com/max/800/sgradmap/1*p3W4co8SfIlHBh7xbYcSqw.png',
-							title: 'Progressive Prepping 101: Online Resources',
-							snippet: 'The guaranteed no-Confederate-flag, almost-entirely-Bible-free guide to online emergency preparedness resources for beginners',
-							author: 'Sarah Avery',
-							authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/120/160/1*k4UtJsQUp9iR1EgXQnxp2w@2x.png',
-							date: 'June 19',
-							readingTime: '9 min'
-						},
-						{
-							thumbnail: 'https://cdn-images-1.medium.com/max/800/sgradmap/1*xB949CGbIkIUdkF4qbKFpw.jpeg',
-							title: 'Sperm, Poison, and Lily of the Valley',
-							snippet: 'In 2003, a study published in the journal Science claimed that human sperm were able to literally smell the distinctive springlike…',
-							author: 'Edith Zimmerman',
-							authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/120/160/1*Cx9u-meYj4vXKu0XpZhrxQ@2x.png',
-							date: 'June 19',
-							readingTime: '6 min'
-						},
-						{
-							thumbnail: 'https://cdn-images-1.medium.com/max/800/1*IRebQ_UQ3_GgmL_DAWW7zQ.jpeg',
-							title: 'Why we need a dating app that understand Nash\'s equilibrium',
-							snippet: 'Nash’s equilibrium is a simple concept that helps economists predict how competing companies will set prices, how much to pay a much-in…',
-							author: 'Abhishek Madhavan',
-							authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/0*Gadzxykosi6ebsjf.jpg',
-							date: 'May 23',
-							readingTime: '5 min'
-						},
-						{
-							thumbnail: 'https://cdn-images-1.medium.com/max/800/sgradmap/1*W1JrAvCpgSppmsSfn-_YlA.jpeg',
-							title: 'The New Politics of Cybersecurity',
-							snippet: 'Rethinking Our Strategic Infrastructure: Part 3',
-							author: 'James Poulos',
-							authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/1*U_guYmkpkdmY-PDEtFfNIA.jpeg',
-							date: 'June 19',
-							readingTime: '7 min'
-						}
-					]
+					popular: {
+						header: 'Popular on Medium',
+						tiles: [
+							{
+								thumbnail: 'https://cdn-images-1.medium.com/max/800/1*Opv_Z-pjWD1-e_rL1udvRg.jpeg',
+								title: 'Encyclopedia Dad',
+								snippet: 'The first time I consult Dad I’m eight. My mom’s dating this guy. He worked with Dad, and I guess he’s a nice enough. But I don’t like it…',
+								author: 'Ryan Riley',
+								authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/1*H-nzuPwGkPOz8Wnmm-bEkw.jpeg',
+								date: 'June 14',
+								readingTime: '24 min'
+							},
+							{
+								thumbnail: 'https://cdn-images-1.medium.com/max/800/1*e63a9PzXZxPgdlzyVxnsnA.jpeg',
+								title: 'The Best Way to Learn Development Skills (While Getting Paid in the Process)',
+								snippet: 'How to harness the motivation to learn development skills without fatigue and with financial revenue.',
+								author: 'Michael Mangialardi',
+								authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/0*EZGwWIn38z4q3X_8.jpg',
+								date: 'June 19',
+								readingTime: '10 min'
+							},
+							{
+								thumbnail: 'https://cdn-images-1.medium.com/max/800/1*nBfLLuLQo8Pd7-iNnfWf5A.jpeg',
+								title: 'Apple Culture after 10 years of iPhone',
+								snippet: 'by Jean-Louis Gassée',
+								author: 'Jean-Louis Gassée',
+								authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/0*nxumRHpz3fHXRqkN.jpg',
+								date: 'June 18',
+								readingTime: '7 min'
+							},
+							{
+								thumbnail: 'https://cdn-images-1.medium.com/max/800/1*-0YKxCzUug93g06oeifRaQ.jpeg',
+								title: '6 Things You Need to Recover From Every Day',
+								snippet: 'Less than 1% of people are living according to the principles/science described herein. However, I’m confident that if you apply these…',
+								author: 'Benjamin P. Hardy',
+								authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/1*Nii6Op1jsOaE4mBfeQpSdw.jpeg',
+								date: 'June 19',
+								readingTime: '14 min'
+							}
+						],
+					},
+					audio: {
+						header: 'Audio',
+						tiles: [
+							{
+								thumbnail: 'https://cdn-images-1.medium.com/max/800/sgradmap/1*p3W4co8SfIlHBh7xbYcSqw.png',
+								title: 'Progressive Prepping 101: Online Resources',
+								snippet: 'The guaranteed no-Confederate-flag, almost-entirely-Bible-free guide to online emergency preparedness resources for beginners',
+								author: 'Sarah Avery',
+								authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/120/160/1*k4UtJsQUp9iR1EgXQnxp2w@2x.png',
+								date: 'June 19',
+								readingTime: '9 min'
+							},
+							{
+								thumbnail: 'https://cdn-images-1.medium.com/max/800/sgradmap/1*xB949CGbIkIUdkF4qbKFpw.jpeg',
+								title: 'Sperm, Poison, and Lily of the Valley',
+								snippet: 'In 2003, a study published in the journal Science claimed that human sperm were able to literally smell the distinctive springlike…',
+								author: 'Edith Zimmerman',
+								authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/120/160/1*Cx9u-meYj4vXKu0XpZhrxQ@2x.png',
+								date: 'June 19',
+								readingTime: '6 min'
+							},
+							{
+								thumbnail: 'https://cdn-images-1.medium.com/max/800/1*IRebQ_UQ3_GgmL_DAWW7zQ.jpeg',
+								title: 'Why we need a dating app that understand Nash\'s equilibrium',
+								snippet: 'Nash’s equilibrium is a simple concept that helps economists predict how competing companies will set prices, how much to pay a much-in…',
+								author: 'Abhishek Madhavan',
+								authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/0*Gadzxykosi6ebsjf.jpg',
+								date: 'May 23',
+								readingTime: '5 min'
+							},
+							{
+								thumbnail: 'https://cdn-images-1.medium.com/max/800/sgradmap/1*W1JrAvCpgSppmsSfn-_YlA.jpeg',
+								title: 'The New Politics of Cybersecurity',
+								snippet: 'Rethinking Our Strategic Infrastructure: Part 3',
+								author: 'James Poulos',
+								authorThumbnail: 'https://cdn-images-1.medium.com/fit/c/80/80/1*U_guYmkpkdmY-PDEtFfNIA.jpeg',
+								date: 'June 19',
+								readingTime: '7 min'
+							}
+						]
+					}
 				}
 			};
 		},
