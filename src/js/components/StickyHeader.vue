@@ -2,13 +2,13 @@
 	<div class="sticky-header" :class="headerClass">
 		<div class="container">
 			<div class="sticky-header-links-container">
-				<ButtonLink class="sticky-header-link-get-started"
+				<button-link class="sticky-header-link-get-started"
 					backgroundColor="#00ab6b"
 					borderColor="#00ab6b"
 					color="#fff"
 				>
 					Get started
-				</ButtonLink>
+				</button-link>
 
 				<ul class="sticky-header-links vertically-center-container">
 					<li class="sticky-header-link vertically-center"><a class="gray-link" href="#">Home</a></li>

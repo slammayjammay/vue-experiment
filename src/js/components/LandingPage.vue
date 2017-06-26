@@ -6,15 +6,15 @@
 				<h1 class="banner-title">Home to unique ideas from the world’s smart minds.</h1>
 				<h2 class="banner-text">Hear directly from the people who know it best. From tech to politics to creativity and more — whatever your interest, we’ve got you covered.</h2>
 			</div>
-			<ButtonLink class="button-primary">Get started</ButtonLink>
-			<ButtonLink class="button-secondary">Learn more</ButtonLink>
+			<button-link class="button-primary">Get started</button-link>
+			<button-link class="button-secondary">Learn more</button-link>
 		</div>
 
-		<TileSection
+		<tile-section
 			header="Popular on Medium"
 			:tiles="this.categories.popular"
 		/>
-		<TileSection
+		<tile-section
 			header="Audio"
 			:tiles="this.categories.audio"
 		/>

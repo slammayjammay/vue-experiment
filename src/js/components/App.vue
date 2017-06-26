@@ -1,8 +1,8 @@
 <template>
 	<div class="app">
-		<HeaderComponent/>
-		<StickyHeader :scrollPosition="scrollPosition"/>
-		<LandingPage/>
+		<header-component/>
+		<sticky-header :scrollPosition="scrollPosition"/>
+		<landing-page/>
 	</div>
 </template>
 

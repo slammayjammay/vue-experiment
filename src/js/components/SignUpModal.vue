@@ -1,7 +1,7 @@
 <template>
-	<Modal class="sign-up-modal"
+	<modal class="sign-up-modal"
 		:show="show"
-		transition="ScaleTransition"
+		transition="scale-transition"
 		v-on:close="close"
 	>
 		<div class="header">
@@ -18,7 +18,7 @@
 			<p>To use Medium you must have cookies enabled.</p>
 			<p>If you sign up with Twitter or Facebook, we’ll start you off with a network by automatically importing any followers/followees or friends already on Medium. Also, we’ll never post to Twitter or Facebook without your permission. For more info, please see Login FAQ.</p>
 		</div>
-	</Modal>
+	</modal>
 </template>
 
 <script>

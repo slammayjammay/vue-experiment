@@ -9,7 +9,7 @@
 			</div>
 		</div>
 
-		<Tile
+		<tile
 			v-for="(tile, idx) in tiles"
 			key="idx"
 			:thumbnail="tile.thumbnail"
@@ -21,7 +21,7 @@
 			:readingTime="tile.readingTime"
 			:class="{ left: idx % 2 === 0, right: idx % 2 === 1 }"
 			>
-		</Tile>
+		</tile>
 	</div>
 </template>
 

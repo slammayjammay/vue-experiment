@@ -1,6 +1,6 @@
 <template>
 	<div class="header" :class="headerClass">
-		<SignUpModal :show="isSigningUp" v-on:close="toggleSignUp"></SignUpModal>
+		<sign-up-modal :show="isSigningUp" v-on:close="toggleSignUp"></sign-up-modal>
 
 		<div class="container" ref="container">
 			<div class="header-title vertically-center-container">
