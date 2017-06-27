@@ -1,5 +1,5 @@
 <template>
-	<div class="app">
+	<div id="app" class="app">
 		<header-component/>
 		<sticky-header :scrollPosition="scrollPosition"/>
 		<landing-page/>

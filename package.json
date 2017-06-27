@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server"
+    "build": "npm run build:server && npm run build:client",
+    "build:client": "webpack --config=./webpack/webpack.client.config.js --progress",
+    "build:server": "webpack --config=./webpack/webpack.server.config.js --progress",
+    "dev": "webpack-dev-server",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.15.3",
     "gsap": "^1.19.1",
-    "vue": "^2.3.4"
+    "vue": "^2.3.4",
+    "vue-server-renderer": "^2.3.4"
   },
   "devDependencies": {
     "css-loader": "^0.28.4",
@@ -20,6 +26,7 @@
     "vue-loader": "^12.2.1",
     "vue-template-compiler": "^2.3.4",
     "webpack": "^3.0.0",
-    "webpack-dev-server": "^2.5.0"
+    "webpack-dev-server": "^2.5.0",
+    "webpack-merge": "^4.1.0"
   }
 }
