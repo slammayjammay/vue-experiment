@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build:server && npm run build:client",
-    "build:client": "webpack --config=./webpack/webpack.client.config.js --progress",
-    "build:server": "webpack --config=./webpack/webpack.server.config.js --progress",
-    "dev": "webpack-dev-server",
-    "start": "node server.js"
+    "build": "npm run clean && npm run build:server && npm run build:client",
+    "build:client": "webpack --config=./webpack/webpack.client.config.js --progress --hide-modules",
+    "build:server": "webpack --config=./webpack/webpack.server.config.js --progress --hide-modules",
+    "clean": "rm -rf dist/",
+    "dev": "npm run clean && node server.js",
+    "start": "npm run build && cross-env NODE_ENV=production node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "vue-server-renderer": "^2.3.4"
   },
   "devDependencies": {
+    "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",
@@ -26,7 +28,9 @@
     "vue-loader": "^12.2.1",
     "vue-template-compiler": "^2.3.4",
     "webpack": "^3.0.0",
+    "webpack-dev-middleware": "^1.11.0",
     "webpack-dev-server": "^2.5.0",
+    "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
   }
 }

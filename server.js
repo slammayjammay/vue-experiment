@@ -2,13 +2,28 @@ const fs = require('fs');
 const { join } = require('path');
 const express = require('express');
 const { createBundleRenderer } = require('vue-server-renderer');
+const setupDevServer = require('./webpack/setup-dev-server');
 
-const renderer = createBundleRenderer(join(__dirname, './dist/vue-ssr-server-bundle.json'), {
-	template: fs.readFileSync('./src/index.template.html', 'utf-8'),
-	clientManifest: require(join(__dirname, './dist/vue-ssr-client-manifest.json'))
-});
-
+const isProduction = process.env.NODE_ENV === 'production';
 const server = express();
+
+// serve all files under dist/
+server.use('/dist', express.static(`${__dirname}/dist/`));
+
+let renderer;
+
+if (isProduction) {
+  const bundle = require('./dist/vue-ssr-server-bundle.json');
+  const clientManifest = require('./dist/vue-ssr-client-manifest.json');
+  renderer = createRenderer(bundle, { clientManifest });
+} else {
+	// do the watching and hot reloading
+	setupDevServer(server, {
+		onBundled(bundle, options) {
+			renderer = createRenderer(bundle, options);
+		}
+	});
+}
 
 const PORT = 8080;
 server.listen(PORT, () => {
@@ -16,7 +31,12 @@ server.listen(PORT, () => {
 });
 
 server.get('/', (req, res) => {
-	renderer.renderToString((err, html) => {
+	if (!renderer && !isProduction) {
+		return res.end('waiting for compilation...refresh in a moment.');
+	}
+
+	const context = {};
+	renderer.renderToString(context, (err, html) => {
 		if (err) {
 			console.log(err);
 			throw err;
@@ -26,5 +46,8 @@ server.get('/', (req, res) => {
 	});
 });
 
-// serve all files under dist/
-server.use('/dist', express.static(`${__dirname}/dist/`));
+function createRenderer(bundlePath, options = {}) {
+	return createBundleRenderer(bundlePath, Object.assign({
+		template: fs.readFileSync('./src/index.template.html', 'utf-8')
+	}, options));
+}
