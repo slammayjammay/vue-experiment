@@ -1,11 +1,15 @@
 <template>
 	<div class="tile">
-		<div class="thumbnail" v-bind:style="style.thumbnail"></div>
+		<block-link class="thumbnail-link" href="#">
+			<div class="thumbnail" v-bind:style="style.thumbnail"></div>
+		</block-link>
 
 		<div class="content">
 			<div class="content-container">
-				<p class="title">{{ title }}</p>
-				<p class="snippet">{{ snippet }}</p>
+				<block-link href="#">
+					<p class="title">{{ title }}</p>
+					<p class="snippet">{{ snippet }}</p>
+				</block-link>
 				<div class="author">
 					<div class="author-thumbnail" v-bind:style="style.authorThumbnail"></div>
 					<div class="more-info">
@@ -19,8 +23,13 @@
 </template>
 
 <script>
+	import BlockLink from './BlockLink.vue';
+
 	export default {
 		props: ['thumbnail', 'title', 'snippet', 'author', 'authorThumbnail', 'date', 'readingTime'],
+		components: {
+			BlockLink
+		},
 		computed: {
 			style() {
 				return {
@@ -37,12 +46,17 @@
 		width: 50%;
 		height: 260px;
 
-		.thumbnail {
+		.thumbnail-link {
 			width: 40%;
 			height: 100%;;
-			background-size: cover;
-			background-position: center;
 			float: left;
+
+			.thumbnail {
+				width: 100%;
+				height: 100%;;
+				background-size: cover;
+				background-position: center;
+			}
 		}
 
 		.content {
