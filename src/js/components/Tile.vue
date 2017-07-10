@@ -10,7 +10,7 @@
 					<div class="author-thumbnail" v-bind:style="style.authorThumbnail"></div>
 					<div class="more-info">
 						<p class="name">{{ author }}</p>
-						<p class="date">{{date }} • {{ readingTime }} read</p>
+						<p class="date">{{ date }} • {{ readingTime }} read</p>
 					</div>
 				</div>
 			</div>
