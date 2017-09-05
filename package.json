@@ -9,6 +9,8 @@
     "build:server": "webpack --config=./webpack/webpack.server.config.js --progress --hide-modules",
     "clean": "rm -rf dist/",
     "dev": "npm run clean && node server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "start": "npm run build && cross-env NODE_ENV=production node server.js"
   },
   "author": "",

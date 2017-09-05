@@ -1,4 +1,4 @@
-const { join, resolve } = require('path');
+const { join } = require('path');
 const MFS = require('memory-fs');
 const webpack = require('webpack');
 const serverConfig = require('./webpack.server.config');

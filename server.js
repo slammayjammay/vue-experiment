@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { join } = require('path');
 const express = require('express');
 const { createBundleRenderer } = require('vue-server-renderer');
 const setupDevServer = require('./webpack/setup-dev-server');
@@ -13,9 +12,9 @@ server.use('/dist', express.static(`${__dirname}/dist/`));
 let renderer;
 
 if (isProduction) {
-  const bundle = require('./dist/vue-ssr-server-bundle.json');
-  const clientManifest = require('./dist/vue-ssr-client-manifest.json');
-  renderer = createRenderer(bundle, { clientManifest });
+	const bundle = require('./dist/vue-ssr-server-bundle.json');
+	const clientManifest = require('./dist/vue-ssr-client-manifest.json');
+	renderer = createRenderer(bundle, { clientManifest });
 } else {
 	// do the watching and hot reloading
 	setupDevServer(server, {

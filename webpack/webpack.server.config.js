@@ -1,5 +1,5 @@
 const merge = require('webpack-merge');
-const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 const baseConfig = require('./webpack.base.config');
 const packageJSON = require('../package.json');
 

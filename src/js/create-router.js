@@ -6,13 +6,13 @@ import ArticlePage from './components/ArticlePage';
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/', component: LandingPage },
-    { path: '/article/:title', component: ArticlePage }
+	{ path: '/', component: LandingPage },
+	{ path: '/article/:title', component: ArticlePage }
 ];
 
 export default () => {
-    return new VueRouter({ 
-        mode: 'history',
-        routes
-    });
+	return new VueRouter({ 
+		mode: 'history',
+		routes
+	});
 };
