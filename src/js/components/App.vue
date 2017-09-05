@@ -2,13 +2,12 @@
 	<div id="app" class="app">
 		<header-component/>
 		<sticky-header :scrollPosition="scrollPosition"/>
-		<landing-page/>
+		<router-view/>
 	</div>
 </template>
 
 <script>
 	import HeaderComponent from './HeaderComponent.vue';
-	import LandingPage from './LandingPage.vue';
 	import StickyHeader from './StickyHeader.vue';
 
 	export default {
@@ -27,7 +26,6 @@
 		},
 		components: {
 			HeaderComponent,
-			LandingPage,
 			StickyHeader
 		}
 	}

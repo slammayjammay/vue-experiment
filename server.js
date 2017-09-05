@@ -30,12 +30,14 @@ server.listen(PORT, () => {
 	console.log(`Serving on port ${PORT}`);
 });
 
-server.get('/', (req, res) => {
+server.get('*', (req, res) => {
 	if (!renderer && !isProduction) {
 		return res.end('waiting for compilation...refresh in a moment.');
 	}
 
-	const context = {};
+	const context = {
+		url: req.url
+	};
 	renderer.renderToString(context, (err, html) => {
 		if (err) {
 			console.log(err);
