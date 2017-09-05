@@ -3,7 +3,7 @@
 //===========================================
 import Vue from 'vue';
 import createRouter from './create-router';
-import App from './components/App.vue';
+import App from './components/App';
 
 export default () => {
 	const router = createRouter();

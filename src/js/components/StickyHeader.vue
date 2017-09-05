@@ -30,7 +30,7 @@
 </template>
 
 <script>
-	import ButtonLink from './ButtonLink.vue';
+	import ButtonLink from './ButtonLink';
 
 	export default {
 		props: ['scrollPosition'],

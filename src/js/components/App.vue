@@ -7,8 +7,8 @@
 </template>
 
 <script>
-	import HeaderComponent from './HeaderComponent.vue';
-	import StickyHeader from './StickyHeader.vue';
+	import HeaderComponent from './HeaderComponent';
+	import StickyHeader from './StickyHeader';
 
 	export default {
 		data() {

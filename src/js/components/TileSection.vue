@@ -26,7 +26,7 @@
 </template>
 
 <script>
-	import Tile from './Tile.vue';
+	import Tile from './Tile';
 
 	export default {
 		props: ['header', 'tiles'],

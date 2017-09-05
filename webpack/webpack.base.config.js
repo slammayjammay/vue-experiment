@@ -10,5 +10,8 @@ module.exports = {
 			{ loader: 'vue-loader', test: /\.vue$/ },
 			{ loader: 'url-loader', test: /\.(png|jpg)$/ }
 		]
+	},
+	resolve: {
+		extensions: ['*', '.js', '.vue']
 	}
 };

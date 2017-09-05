@@ -31,7 +31,7 @@
 </template>
 
 <script>
-	import SignUpModal from './SignUpModal.vue';
+	import SignUpModal from './SignUpModal';
 
 	export default {
 		components: {

@@ -20,9 +20,9 @@
 </template>
 
 <script>
-	import TileSection from './TileSection.vue';
-	import Tile from './Tile.vue';
-	import ButtonLink from './ButtonLink.vue';
+	import TileSection from './TileSection';
+	import Tile from './Tile';
+	import ButtonLink from './ButtonLink';
 
 	export default {
 		data() {

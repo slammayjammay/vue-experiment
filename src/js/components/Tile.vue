@@ -23,7 +23,7 @@
 </template>
 
 <script>
-	import BlockLink from './BlockLink.vue';
+	import BlockLink from './BlockLink';
 
 	export default {
 		props: ['thumbnail', 'title', 'snippet', 'author', 'authorThumbnail', 'date', 'readingTime'],

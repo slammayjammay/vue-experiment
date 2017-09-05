@@ -11,8 +11,8 @@
 </template>
 
 <script>
-	import DefaultTransition from './transitions/modal/DefaultTransition.vue';
-	import ScaleTransition from './transitions/modal/ScaleTransition.vue';
+	import DefaultTransition from './transitions/modal/DefaultTransition';
+	import ScaleTransition from './transitions/modal/ScaleTransition';
 
 	export default {
 		props: {
