@@ -30,7 +30,9 @@ module.exports = (server, options = {}) => {
 			const path = join(clientConfig.output.path, 'vue-ssr-client-manifest.json');
 			try {
 				return JSON.parse(devMiddleware.fileSystem.readFileSync(path));
-			} catch(e) {}
+			} catch(e) {
+				return null;
+			}
 		})();
 
 		if (bundle) {
